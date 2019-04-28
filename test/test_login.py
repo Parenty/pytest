@@ -10,8 +10,8 @@ def app(request):
 
 
 def test_login(app):
-	app.login(username='dmitriev@uchi.ru', password='123')
-	app.logout()
+	app.session.login(username='dmitriev@uchi.ru', password='123')
+	app.session.logout()
 
 
 
