@@ -6,7 +6,7 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 class Application:
 
 	def __init__(self):
-		self.wd = webdriver.Firefox(firefox_binary=FirefoxBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe"),capabilities=DesiredCapabilities.FIREFOX.copy())
+		self.wd = webdriver.Firefox()
 		self.wd.implicitly_wait(60)
 
 	def open_home_page(self):
