@@ -1,6 +1,6 @@
 import pytest
 from selenium import webdriver
-from application import Application
+from fixture.application import Application
 
 @pytest.fixture
 def app(request):
