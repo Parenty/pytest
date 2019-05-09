@@ -19,3 +19,9 @@ class SessionHelper:
 		wd.find_element_by_class_name('headbar--profile').click()
 		wd.implicitly_wait(10)
 		wd.find_element_by_link_text('Выйти').click()
+
+
+	def ensure_logout(self):
+		wd = self.app.wd
+		if len(wd.find_elements_by_class_name('headbar--profile-icon')) > 0:
+			self.logout()
