@@ -18,10 +18,17 @@ class SessionHelper:
 		wd = self.app.wd
 		wd.find_element_by_class_name('headbar--profile').click()
 		wd.implicitly_wait(10)
-		wd.find_element_by_link_text('Выйти').click()
+		wd.find_element_by_xpath('/html/body/section[1]/div/div/div/div[3]/div[3]/div[4]/a').click()
 
 
 	def ensure_logout(self):
 		wd = self.app.wd
 		if len(wd.find_elements_by_class_name('headbar--profile-icon')) > 0:
 			self.logout()
+
+	def ensure_login(self, username, password):
+		wd = self.app.wd
+		if len(wd.find_elements_by_class_name('headbar--profile-icon')) > 0:
+			return
+
+		self.login(username, password)
