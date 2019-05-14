@@ -25,6 +25,7 @@ class GroupHelper:
 		self.ensure_open_group_page()
 
 		#Начать создание группы
+		wd.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 		wd.find_element_by_class_name('add-class-btn').click()
 
 		#Выбираю нужный номер класса
