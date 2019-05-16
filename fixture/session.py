@@ -18,7 +18,7 @@ class SessionHelper:
 		wd = self.app.wd
 		wd.find_element_by_class_name('headbar--profile').click()
 		wd.implicitly_wait(10)
-		wd.find_element_by_xpath('/html/body/section[1]/div/div/div/div[3]/div[3]/div[4]/a').click()
+		wd.find_element_by_link_text('Выйти').click()
 
 
 	def ensure_logout(self):
