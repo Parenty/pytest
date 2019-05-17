@@ -11,7 +11,7 @@ def test_create_group(app):
 	new_groups = app.group.get_group_list()
 	assert len(old_groups)+1 == len(new_groups)
 
-	print ("Старое кол-во групп: ", len(old_groups))
+	print ("\n Старое кол-во групп: ", len(old_groups))
 	print ("Новое кол-во групп: ", len(new_groups))
 
 
