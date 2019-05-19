@@ -84,11 +84,12 @@ class GroupHelper:
 		wd = self.app.wd
 		self.ensure_open_group_page()
 		groups = []
-		id = 0
 		for element in wd.find_elements_by_css_selector('div.section-card_class'):
 			text = element.find_element_by_class_name('section-class__blocks--name').text
-			groups.append(Group(name_class = text, id = id))
-			id = id + 1
+			class_code_text = element.find_element_by_class_name('class__code').text
+			class_code_list = class_code_text.split(': ')
+			class_code = class_code_list[1]
+			groups.append(Group(name_class = text, class_code = class_code))
 		return groups
 
 

@@ -13,5 +13,5 @@ def test_create_group(app):
 
 	print ("\n Старое кол-во групп: ", len(old_groups))
 	print ("Новое кол-во групп: ", len(new_groups))
-
+	
 

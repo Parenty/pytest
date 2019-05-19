@@ -17,3 +17,4 @@ def test_delete_group(app):
 	print ("Новое кол-во групп: ", len(new_groups))
 	print ("\n старые группы ", old_groups)
 	print ("новые группы ", new_groups)
+
