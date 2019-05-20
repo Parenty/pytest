@@ -12,4 +12,4 @@ class Group:
 		
 
 	def __eq__(self, other):
-		return self.class_code == other.class_code and self.name_class == other.name_class
+		return (self.class_code is None or other.class_code is None or self.class_code == other.class_code) and self.name_class == other.name_class

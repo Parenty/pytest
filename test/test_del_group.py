@@ -5,7 +5,7 @@ def test_delete_group(app):
 	old_groups = app.group.get_group_list()
 	# Здесь:
 	# number_class - номер класса,
-	# name_class - название класса (сделал чтобы вводилось вручную)
+	# name_class - название класса (сделал чтобы вводилось вручную в коде)
 	# subject_list - список с предметами, которые нужно добавить
 	app.group.delete_first_group()
 	new_groups = app.group.get_group_list()

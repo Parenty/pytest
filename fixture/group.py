@@ -85,11 +85,16 @@ class GroupHelper:
 		self.ensure_open_group_page()
 		groups = []
 		for element in wd.find_elements_by_css_selector('div.section-card_class'):
+			#Выделяю только название класса (без номера)
 			text = element.find_element_by_class_name('section-class__blocks--name').text
+			text_list = text.split(' ', maxsplit = 1)
+			name_class = text_list[1]
+			#Выделяю только код класса (без лишних слов)
 			class_code_text = element.find_element_by_class_name('class__code').text
 			class_code_list = class_code_text.split(': ')
 			class_code = class_code_list[1]
-			groups.append(Group(name_class = text, class_code = class_code))
+			#формирую список
+			groups.append(Group(name_class = name_class, class_code = class_code))
 		return groups
 
 
