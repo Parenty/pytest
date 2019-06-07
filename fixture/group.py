@@ -37,27 +37,33 @@ class GroupHelper:
 		wd.find_element_by_class_name('toggle_form_part').click()
 
 		#Указать название класса
-		wd.find_element_by_id('').send_keys(group.name_class)
+		wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div[3]/input').send_keys(group.name_class)
 
 		#Выбор предметов в чекбоксах
 
 		for item in group.subject_list:
 			if item == 'math':
-				wd.find_element_by_xpath('//form[@id="new_group"]/div[3]/div/div[1]').click()
+				wd.find_element_by_xpath('//*[@id="new_group"]/div[3]/div/div[1]').click()
 			elif item == 'rus':
-				wd.find_element_by_xpath('//form[@id="new_group"]/div[3]/div/div[2]').click()
+				wd.find_element_by_xpath('//*[@id="new_group"]/div[3]/div/div[2]').click()
 			elif item == 'eng':
-				wd.find_element_by_xpath('//form[@id="new_group"]/div[3]/div/div[3]').click()
+				wd.find_element_by_xpath('//*[@id="new_group"]/div[3]/div/div[3]').click()
 			elif item == 'env':
-				wd.find_element_by_xpath('//form[@id="new_group"]/div[3]/div/div[4]').click()
+				wd.find_element_by_xpath('//*[@id="new_group"]/div[3]/div/div[4]').click()
+			elif item == 'prog':
+				wd.find_element_by_xpath('//*[@id="new_group"]/div[3]/div/div[5]').click()
 			elif item == 'bio':
-				wd.find_element_by_xpath('//form[@id="new_group"]/div[3]/div/div[5]').click()
+				wd.find_element_by_xpath('//*[@id="new_group"]/div[3]/div/div[6]').click()
 			elif item == 'geo':
-				wd.find_element_by_xpath('//form[@id="new_group"]/div[3]/div/div[6]').click()
+				wd.find_element_by_xpath('//*[@id="new_group"]/div[3]/div/div[7]').click()
 			elif item == 'soc':
-				wd.find_element_by_xpath('//form[@id="new_group"]/div[3]/div/div[7]').click()
+				wd.find_element_by_xpath('//*[@id="new_group"]/div[3]/div/div[8]').click()
 			elif item == 'phys':
-				wd.find_element_by_xpath('//form[@id="new_group"]/div[3]/div/div[8]').click()
+				wd.find_element_by_xpath('//*[@id="new_group"]/div[3]/div/div[9]').click()
+			elif item == 'chem':
+				wd.find_element_by_xpath('//*[@id="new_group"]/div[3]/div/div[10]').click()
+			elif item == 'hist':
+				wd.find_element_by_xpath('//*[@id="new_group"]/div[3]/div/div[11]').click()
 			else:
 				pass
 
@@ -66,12 +72,25 @@ class GroupHelper:
 		wd.find_element_by_xpath('//*[@id="new_group"]/div[4]/input').click()
 
 
+	def ensure_group_invite(self):
+		wd = self.app.wd
+		if len(wd.find_elements_by_xpath('/html/body/section[2]/div[1]/div/div[2]/div/form/div[2]/div[3]/input')) > 0:
+			return True
+		else:
+			return False
+
+
 	def delete_first_group(self):
 		wd = self.app.wd
 		self.ensure_open_group_page()
 
 		wd.find_element_by_xpath('/html/body/section[2]/div[1]/div[1]/div/div[1]/a').click()
-		wd.find_element_by_xpath('/html/body/section[2]/div[1]/div/div[1]/div/div/a').click()
+		## Проверяю приглашенная группа или нет
+
+		if self.ensure_group_invite() == True:
+			wd.find_element_by_xpath('/html/body/div[2]/div[2]/a').click()
+		else:
+			wd.find_element_by_xpath('/html/body/section[2]/div[1]/div/div[1]/div/div/a').click()
 
 		wd.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 		wd.implicitly_wait(10)
