@@ -1,6 +1,7 @@
 from model.group import Group
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.alert import Alert
+#from selenium.webdriver.support.ui import Select
 import time
 
 class GroupHelper:
@@ -71,7 +72,7 @@ class GroupHelper:
 		#Нажать кнопку Далее
 		wd.find_element_by_xpath('//*[@id="new_group"]/div[4]/input').click()
 
-
+		#Метод который проверяет приглашенная группа или нет
 	def ensure_group_invite(self):
 		wd = self.app.wd
 		if len(wd.find_elements_by_xpath('/html/body/section[2]/div[1]/div/div[2]/div/form/div[2]/div[3]/input')) > 0:

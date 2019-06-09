@@ -1,6 +1,15 @@
 from model.group import Group
+import pytest
 
-def test_create_group(app):
+testdata = [
+
+	Group(number_class = '5 класс', name_class = 'тестовый класс1', subject_list =['rus', 'eng', 'env']),
+	Group(number_class = '5 класс', name_class = 'тестовый класс2', subject_list =['rus', 'eng', 'geo', 'soc']),
+	Group(number_class = '7 класс', name_class = 'тестовый класс3', subject_list =['rus', 'eng', 'phys', 'soc'])
+]
+
+@pytest.mark.parametrize('group', testdata, ids = [repr(x) for x in testdata])
+def test_create_group(app, group):
 	app.session.ensure_login(username='dmitriev@uchi.ru', password='123')
 	old_groups = app.group.get_group_list()
 	# Здесь:
@@ -8,8 +17,6 @@ def test_create_group(app):
 	# name_class - название класса (сделал чтобы вводилось вручную)
 	# subject_list - список с предметами, которые нужно добавить
 	# Вводим данные для создания класса
-
-	group = Group(number_class = '5 класс', name_class = 'тестовый класс', subject_list =['rus', 'eng', 'geo', 'soc'])
 	app.group.create(group)
 
 	new_groups = app.group.get_group_list()
