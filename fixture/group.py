@@ -30,47 +30,49 @@ class GroupHelper:
 		wd.find_element_by_class_name('add-class-btn').click()
 
 		#Выбираю нужный номер класса
-		dropdown = wd.find_element_by_id('group_parallel')
-		dropdown.send_keys(group.number_class)
+
+		dropdown = wd.find_element_by_id('select2-group_parallel-container')
+		dropdown.click()
+		wd.find_element_by_class_name('select2-search__field').send_keys(group.number_class)
+		wd.find_element_by_class_name('select2-search__field').send_keys(Keys.ENTER)
 
 
 		#Нажать на ссылку "У моего класса нет буквы"
 		wd.find_element_by_class_name('toggle_form_part').click()
 
 		#Указать название класса
-		wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div[3]/input').send_keys(group.name_class)
-
+		wd.find_element_by_xpath('//*[@id="new_group"]/div[1]/div[3]/input').send_keys(group.name_class)
 		#Выбор предметов в чекбоксах
 
 		for item in group.subject_list:
 			if item == 'math':
-				wd.find_element_by_xpath('//*[@id="new_group"]/div[3]/div/div[1]').click()
+				wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div/div[1]').click()
 			elif item == 'rus':
-				wd.find_element_by_xpath('//*[@id="new_group"]/div[3]/div/div[2]').click()
+				wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div/div[2]').click()
 			elif item == 'eng':
-				wd.find_element_by_xpath('//*[@id="new_group"]/div[3]/div/div[3]').click()
+				wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div/div[3]').click()
 			elif item == 'env':
-				wd.find_element_by_xpath('//*[@id="new_group"]/div[3]/div/div[4]').click()
+				wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div/div[4]').click()
 			elif item == 'prog':
-				wd.find_element_by_xpath('//*[@id="new_group"]/div[3]/div/div[5]').click()
+				wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div/div[5]').click()
 			elif item == 'bio':
-				wd.find_element_by_xpath('//*[@id="new_group"]/div[3]/div/div[6]').click()
+				wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div/div[6]').click()
 			elif item == 'geo':
-				wd.find_element_by_xpath('//*[@id="new_group"]/div[3]/div/div[7]').click()
+				wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div/div[7]').click()
 			elif item == 'soc':
-				wd.find_element_by_xpath('//*[@id="new_group"]/div[3]/div/div[8]').click()
+				wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div/div[8]').click()
 			elif item == 'phys':
-				wd.find_element_by_xpath('//*[@id="new_group"]/div[3]/div/div[9]').click()
+				wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div/div[9]').click()
 			elif item == 'chem':
-				wd.find_element_by_xpath('//*[@id="new_group"]/div[3]/div/div[10]').click()
+				wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div/div[10]').click()
 			elif item == 'hist':
-				wd.find_element_by_xpath('//*[@id="new_group"]/div[3]/div/div[11]').click()
+				wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div/div[11]').click()
 			else:
 				pass
 
 
 		#Нажать кнопку Далее
-		wd.find_element_by_xpath('//*[@id="new_group"]/div[4]/input').click()
+		wd.find_element_by_name('commit').click()
 
 		#Метод который проверяет приглашенная группа или нет
 	def ensure_group_invite(self):
