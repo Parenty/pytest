@@ -2,6 +2,9 @@ from model.group import Group
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 import time
 
 class GroupHelper:
@@ -23,6 +26,7 @@ class GroupHelper:
 
 	def create(self, group):
 		wd = self.app.wd
+		brous = self.app.browser
 		self.ensure_open_group_page()
 
 		#Начать создание группы
@@ -30,11 +34,15 @@ class GroupHelper:
 		wd.find_element_by_class_name('add-class-btn').click()
 
 		#Выбираю нужный номер класса
-
-		dropdown = Select(wd.find_element_by_id('group_parallel'))
-		dropdown.select_by_value(group.number_class)
-
-		#Нажать на ссылку "У моего класса нет буквы"
+		if brous == 'firefox':
+			wd.find_element_by_id('select2-group_parallel-container').click()
+			wd.find_element_by_id('select2-group_parallel-container').send_keys(Keys.DOWN)
+			wd.find_element_by_id('select2-group_parallel-container').send_keys(Keys.RETURN)
+		else:
+			dropdown = Select(wd.find_element_by_id('group_parallel'))
+			#WebDriverWait(wd, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="group_parallel"]/option[3]')))
+			dropdown.select_by_value(group.number_class)
+			#Нажать на ссылку "У моего класса нет буквы"
 		wd.find_element_by_class_name('toggle_form_part').click()
 
 		#Указать название класса

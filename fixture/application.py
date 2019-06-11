@@ -6,8 +6,13 @@ from fixture.group import GroupHelper
 
 class Application:
 
-	def __init__(self):
-		self.wd = webdriver.Chrome()
+	def __init__(self, browser='chrome'):
+		if browser == 'chrome':
+			self.wd = webdriver.Chrome()
+		elif browser == 'firefox':
+			self.wd = webdriver.Firefox()
+		else:
+			raise ValueError('Unrecognized browser %s' % browser)
 		self.wd.set_window_size(1300,900)
 		self.session = SessionHelper(self)
 		self.group = GroupHelper(self)
