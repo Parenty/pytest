@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
+from selenium import webdriver
 import time
 
 class GroupHelper:
@@ -26,7 +27,6 @@ class GroupHelper:
 
 	def create(self, group):
 		wd = self.app.wd
-		brous = self.app.browser
 		self.ensure_open_group_page()
 
 		#Начать создание группы
@@ -34,7 +34,7 @@ class GroupHelper:
 		wd.find_element_by_class_name('add-class-btn').click()
 
 		#Выбираю нужный номер класса
-		if brous == 'firefox':
+		if self.app(browser) == 'firefox':
 			wd.find_element_by_id('select2-group_parallel-container').click()
 			wd.find_element_by_id('select2-group_parallel-container').send_keys(Keys.DOWN)
 			wd.find_element_by_id('select2-group_parallel-container').send_keys(Keys.RETURN)
