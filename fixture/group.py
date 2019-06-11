@@ -34,13 +34,6 @@ class GroupHelper:
 		dropdown = Select(wd.find_element_by_id('group_parallel'))
 		dropdown.select_by_value(group.number_class)
 
-		#dropdown = wd.find_element_by_id('select2-group_parallel-container')
-		#dropdown.click()
-		#dropdown.click()
-		#dropdown.send_keys(group.number_class)
-		#wd.find_element_by_class_name('select2-search__field').send_keys(Keys.ENTER)
-
-
 		#Нажать на ссылку "У моего класса нет буквы"
 		wd.find_element_by_class_name('toggle_form_part').click()
 
@@ -111,14 +104,11 @@ class GroupHelper:
 		self.ensure_open_group_page()
 		groups = []
 		for element in wd.find_elements_by_css_selector('div.section-card_class'):
-			#Выделяю только название класса (без номера)
-			text = element.find_element_by_class_name('section-class__blocks--name').text
-			text_list = text.split(' ', maxsplit = 1)
-			name_class = text_list[1]
 			#Выделяю только код класса (без лишних слов)
-			class_code_text = element.find_element_by_class_name('class__code').text
-			class_code_list = class_code_text.split(': ')
-			class_code = class_code_list[1]
+			name_class = element.find_element_by_class_name('section-class__blocks--name').text.split(' ', maxsplit = 1)[1]
+			class_code = element.find_element_by_class_name('class__code').text.split(': ')[1]
+			#class_code_list = class_code_text.split(': ')
+			#class_code = class_code_list[1]
 			#формирую список
 			groups.append(Group(name_class = name_class, class_code = class_code))
 		return groups
