@@ -1,7 +1,7 @@
 from model.group import Group
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.alert import Alert
-#from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support.ui import Select
 import time
 
 class GroupHelper:
@@ -31,10 +31,14 @@ class GroupHelper:
 
 		#Выбираю нужный номер класса
 
-		dropdown = wd.find_element_by_id('select2-group_parallel-container')
-		dropdown.click()
-		wd.find_element_by_class_name('select2-search__field').send_keys(group.number_class)
-		wd.find_element_by_class_name('select2-search__field').send_keys(Keys.ENTER)
+		dropdown = Select(wd.find_element_by_id('group_parallel'))
+		dropdown.select_by_value(group.number_class)
+
+		#dropdown = wd.find_element_by_id('select2-group_parallel-container')
+		#dropdown.click()
+		#dropdown.click()
+		#dropdown.send_keys(group.number_class)
+		#wd.find_element_by_class_name('select2-search__field').send_keys(Keys.ENTER)
 
 
 		#Нажать на ссылку "У моего класса нет буквы"

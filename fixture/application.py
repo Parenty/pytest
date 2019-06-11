@@ -8,7 +8,7 @@ class Application:
 
 	def __init__(self):
 		self.wd = webdriver.Chrome()
-		self.wd.set_window_size(1920,1080)
+		self.wd.set_window_size(1300,900)
 		self.session = SessionHelper(self)
 		self.group = GroupHelper(self)
 
