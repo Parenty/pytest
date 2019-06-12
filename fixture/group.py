@@ -33,15 +33,11 @@ class GroupHelper:
 		wd.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 		wd.find_element_by_class_name('add-class-btn').click()
 
-		#Выбираю нужный номер класса
-		if self.app(browser) == 'firefox':
-			wd.find_element_by_id('select2-group_parallel-container').click()
-			wd.find_element_by_id('select2-group_parallel-container').send_keys(Keys.DOWN)
-			wd.find_element_by_id('select2-group_parallel-container').send_keys(Keys.RETURN)
-		else:
-			dropdown = Select(wd.find_element_by_id('group_parallel'))
-			#WebDriverWait(wd, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="group_parallel"]/option[3]')))
-			dropdown.select_by_value(group.number_class)
+
+
+
+		dropdown = Select(wd.find_element_by_id('group_parallel'))
+		dropdown.select_by_value(group.number_class)
 			#Нажать на ссылку "У моего класса нет буквы"
 		wd.find_element_by_class_name('toggle_form_part').click()
 
