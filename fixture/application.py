@@ -13,7 +13,8 @@ class Application:
 			self.wd = webdriver.Firefox()
 		else:
 			raise ValueError('Unrecognized browser %s' % browser)
-		self.wd.set_window_size(1300,900)
+		self.wd.maximize_window()
+		#self.wd.set_window_size(1300,900)
 		self.session = SessionHelper(self)
 		self.group = GroupHelper(self)
 

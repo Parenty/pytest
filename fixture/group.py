@@ -35,7 +35,6 @@ class GroupHelper:
 
 
 
-
 		dropdown = Select(wd.find_element_by_id('group_parallel'))
 		dropdown.select_by_value(group.number_class)
 			#Нажать на ссылку "У моего класса нет буквы"
