@@ -13,8 +13,8 @@ def app(request):
 	browser = request.config.getoption('--browser')
 	if target is None:
 		config_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), request.config.getoption('--target'))
-		with open(config_file) as config_file:
-			target = json.load(config_file)
+		with open(config_file) as f:
+			target = json.load(f)
 	if fixture is None or not fixture.is_valid():
 		fixture = Application(browser=browser, base_url=target['baseUrl'])
 	return fixture
