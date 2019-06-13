@@ -12,7 +12,7 @@ class RegHelper:
 		wd.find_element_by_class_name('registration-button').click()
 		wd.find_element_by_xpath('//*[@id="teacher-select-button"]/div[4]/div').click()
 		#ввожу почту
-		wd.find_element_by_xpath('//*[@id="teacher_email"]').send_keys('11222222222222u@uchi.ru')
+		wd.find_element_by_xpath('//*[@id="teacher_email"]').send_keys('dmitriev@uchi.ru')
 
 		#ввожу пароль
 		wd.find_element_by_xpath('//*[@id="teacher_password"]').send_keys('123')
