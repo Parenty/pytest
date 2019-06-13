@@ -6,7 +6,7 @@ from fixture.group import GroupHelper
 
 class Application:
 
-	def __init__(self, browser='chrome'):
+	def __init__(self, browser, base_url):
 		if browser == 'chrome':
 			self.wd = webdriver.Chrome()
 		elif browser == 'firefox':
@@ -17,6 +17,7 @@ class Application:
 		#self.wd.set_window_size(1300,900)
 		self.session = SessionHelper(self)
 		self.group = GroupHelper(self)
+		self.base_url = base_url
 
 
 	def is_valid(self):
@@ -28,7 +29,7 @@ class Application:
 
 	def open_home_page(self):
 		wd = self.wd
-		wd.get("https://uchi.ru/")
+		wd.get(self.base_url)
 
 	def destroy(self):
 		self.wd.quit()
