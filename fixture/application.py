@@ -1,7 +1,7 @@
 from selenium import webdriver
 from fixture.session import SessionHelper
 from fixture.group import GroupHelper
-
+from fixture.registration import RegHelper
 
 
 class Application:
@@ -17,6 +17,7 @@ class Application:
 		#self.wd.set_window_size(1300,900)
 		self.session = SessionHelper(self)
 		self.group = GroupHelper(self)
+		self.registration = RegHelper(self)
 		self.base_url = base_url
 
 
