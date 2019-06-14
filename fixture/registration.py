@@ -1,4 +1,8 @@
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+
 import time
 
 class RegHelper:
@@ -12,7 +16,7 @@ class RegHelper:
 		wd.find_element_by_class_name('registration-button').click()
 		wd.find_element_by_xpath('//*[@id="teacher-select-button"]/div[4]/div').click()
 		#ввожу почту
-		wd.find_element_by_xpath('//*[@id="teacher_email"]').send_keys('dmitriev@uchi.ru')
+		wd.find_element_by_xpath('//*[@id="teacher_email"]').send_keys('dmitriev+3@uchi.ru')
 
 		#ввожу пароль
 		wd.find_element_by_xpath('//*[@id="teacher_password"]').send_keys('123')
@@ -21,10 +25,12 @@ class RegHelper:
 		wd.find_element_by_name('commit').click()
 
 		#Нажать на кнопку продолжить
-		time.sleep(5)
-		wd.find_element_by_css_selector('.form__button').click()
+
+		WebDriverWait(wd, 10).until(EC.element_to_be_clickable((By.CLASS_NAME,'form__button')))
+		wd.find_element_by_class_name('form__button').click()
 
 		#Ввожу фамилию
+		WebDriverWait(wd, 10).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="teacher_last_name"]')))
 		wd.find_element_by_xpath('//*[@id="teacher_last_name"]').send_keys('Дмитриев')
 
 		#Ввожу Имя
