@@ -4,7 +4,7 @@ from data.add_group import testdata
 
 @pytest.mark.parametrize('group', testdata, ids = [repr(x) for x in testdata])
 def test_create_group(app, group):
-	app.session.ensure_login(username='dmitriev@uchi.ru', password='123')
+	app.session.ensure_login(username='dmitriev@uchi.ru', password='1')
 	old_groups = app.group.get_group_list()
 	# Здесь:
 	# number_class - номер класса,

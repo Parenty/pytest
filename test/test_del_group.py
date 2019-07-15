@@ -1,7 +1,7 @@
 from model.group import Group
 
 def test_delete_group(app):
-	app.session.ensure_login(username='dmitriev@uchi.ru', password='123')
+	app.session.ensure_login(username='dmitriev@uchi.ru', password='1')
 	old_groups = app.group.get_group_list()
 	# Здесь:
 	# number_class - номер класса,

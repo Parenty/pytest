@@ -25,16 +25,8 @@ class GroupHelper:
 		self.open_group_page()
 
 
-	def create(self, group):
+	def choise_group(self, group):
 		wd = self.app.wd
-		self.ensure_open_group_page()
-
-		#Начать создание группы
-		wd.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-		wd.find_element_by_class_name('add-class-btn').click()
-
-
-
 		dropdown = Select(wd.find_element_by_id('group_parallel'))
 		dropdown.select_by_value(group.number_class)
 			#Нажать на ссылку "У моего класса нет буквы"
@@ -74,7 +66,18 @@ class GroupHelper:
 		#Нажать кнопку Далее
 		wd.find_element_by_name('commit').click()
 
-		#Метод который проверяет приглашенная группа или нет
+
+	def create(self, group):
+		wd = self.app.wd
+		self.ensure_open_group_page()
+
+		#Начать создание группы
+		wd.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+		wd.find_element_by_class_name('add-class-btn').click()
+
+		self.choise_group(group)
+
+
 	def ensure_group_invite(self):
 		wd = self.app.wd
 		if len(wd.find_elements_by_xpath('/html/body/section[2]/div[1]/div/div[2]/div/form/div[2]/div[3]/input')) > 0:

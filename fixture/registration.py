@@ -2,6 +2,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from model.group import Group
 
 import time
 
@@ -11,12 +12,12 @@ class RegHelper:
 		self.app = app
 
 
-	def reg_teacher(self):
+	def reg_teacher(self, group):
 		wd = self.app.wd
 		wd.find_element_by_class_name('registration-button').click()
 		wd.find_element_by_xpath('//*[@id="teacher-select-button"]/div[4]/div').click()
 		#ввожу почту
-		wd.find_element_by_xpath('//*[@id="teacher_email"]').send_keys('dmitriev+3@uchi.ru')
+		wd.find_element_by_xpath('//*[@id="teacher_email"]').send_keys('dmitriev+10@uchi.ru')
 
 		#ввожу пароль
 		wd.find_element_by_xpath('//*[@id="teacher_password"]').send_keys('123')
@@ -45,14 +46,14 @@ class RegHelper:
 		#Нажимаю кнопку далее
 		wd.find_element_by_name('commit').click()
 
-		#Выбираю регион
-		#wd.find_element_by_xpath('/html/body/section[2]/div[1]/div/div[2]/div/div/form/div[3]/div/div[1]/div[2]/input').send_keys('Архангельская область')
-		#time.sleep(1)
-		#wd.find_element_by_xpath('/html/body/section[2]/div[1]/div/div[2]/div/div/form/div[3]/div/div[1]/div[2]/input').send_keys(Keys.DOWN)
-		#wd.find_element_by_class_name('dropdown-menu default react-selectize simple-select regular-font').send_keys(Keys.ENTER)
-		time.sleep(2)
+		
+		WebDriverWait(wd, 10).until(EC.element_to_be_clickable((By.XPATH,'/html/body/section[2]/div[1]/div/div[2]/div/div/form/div[3]/div')))
 		wd.find_element_by_xpath('/html/body/section[2]/div[1]/div/div[2]/div/div/form/div[3]/div').click()
+
+		WebDriverWait(wd, 10).until(EC.element_to_be_clickable((By.XPATH,'/html/body/section[2]/div[1]/div/div[2]/div/div/form/div[3]/div/div[2]/div[1]')))
 		wd.find_element_by_xpath('/html/body/section[2]/div[1]/div/div[2]/div/div/form/div[3]/div/div[2]/div[1]').click()
+
+		WebDriverWait(wd, 10).until(EC.element_to_be_clickable((By.XPATH,'/html/body/section[2]/div[1]/div/div[2]/div/div/form/a')))
 		wd.find_element_by_xpath('/html/body/section[2]/div[1]/div/div[2]/div/div/form/a').click()
 
 		#Ввожу номер школы
@@ -63,6 +64,9 @@ class RegHelper:
 
 		#Нажимаю кнопку далее
 		wd.find_element_by_name('commit').click()
+
+		# Создаю группу
+		self.app.group.choise_group(group)
 
 
 
