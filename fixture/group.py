@@ -25,7 +25,7 @@ class GroupHelper:
 		self.open_group_page()
 
 
-	def choise_group(self, group):
+	def choice_group(self, group):
 		wd = self.app.wd
 		dropdown = Select(wd.find_element_by_id('group_parallel'))
 		dropdown.select_by_value(group.number_class)
@@ -75,7 +75,7 @@ class GroupHelper:
 		wd.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 		wd.find_element_by_class_name('add-class-btn').click()
 
-		self.choise_group(group)
+		self.choice_group(group)
 
 
 	def ensure_group_invite(self):

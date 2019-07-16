@@ -2,7 +2,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from model.group import Group
+from model.registration import Reg
 
 import time
 
@@ -12,15 +12,15 @@ class RegHelper:
 		self.app = app
 
 
-	def reg_teacher(self, group):
+	def reg_teacher(self, registration):
 		wd = self.app.wd
 		wd.find_element_by_class_name('registration-button').click()
 		wd.find_element_by_xpath('//*[@id="teacher-select-button"]/div[4]/div').click()
 		#ввожу почту
-		wd.find_element_by_xpath('//*[@id="teacher_email"]').send_keys('dmitriev+10@uchi.ru')
+		wd.find_element_by_xpath('//*[@id="teacher_email"]').send_keys(registration.email)
 
 		#ввожу пароль
-		wd.find_element_by_xpath('//*[@id="teacher_password"]').send_keys('123')
+		wd.find_element_by_xpath('//*[@id="teacher_password"]').send_keys(registration.password)
 
 		#нажать зарегистрироваться
 		wd.find_element_by_name('commit').click()
@@ -66,7 +66,7 @@ class RegHelper:
 		wd.find_element_by_name('commit').click()
 
 		# Создаю группу
-		self.app.group.choise_group(group)
+		self.app.group.choice_group(registration)
 
 
 
