@@ -27,7 +27,5 @@ class AddstudentHelper:
 		wd.find_element(By.CSS_SELECTOR, 'input[placeholder = "Фамилия"]').send_keys('тестовый')
 		#Ввожу имя
 		wd.find_element(By.CSS_SELECTOR, 'input[placeholder = "Имя"]').send_keys('студент' + Keys.TAB)
-		#Выбираю пол
-		# wd.find_element(By.CLASS_NAME, 't-students-accounts--item-field-option').click()
 		#Нажимаю кнопку добавить
 		wd.find_element(By.CSS_SELECTOR, 'button[data-amplitude = "add student"]').click()
