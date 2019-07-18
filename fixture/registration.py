@@ -45,8 +45,8 @@ class RegHelper:
 
 		#Нажимаю кнопку далее
 		wd.find_element_by_name('commit').click()
-
 		
+		# Выбор региона
 		WebDriverWait(wd, 10).until(EC.element_to_be_clickable((By.XPATH,'/html/body/section[2]/div[1]/div/div[2]/div/div/form/div[3]/div')))
 		wd.find_element_by_xpath('/html/body/section[2]/div[1]/div/div[2]/div/div/form/div[3]/div').click()
 

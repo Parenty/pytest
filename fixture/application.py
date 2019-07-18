@@ -2,6 +2,7 @@ from selenium import webdriver
 from fixture.session import SessionHelper
 from fixture.group import GroupHelper
 from fixture.registration import RegHelper
+from fixture.add_student_teacher import AddstudentHelper
 
 
 class Application:
@@ -18,6 +19,7 @@ class Application:
 		self.session = SessionHelper(self)
 		self.group = GroupHelper(self)
 		self.registration = RegHelper(self)
+		self.addstudent = AddstudentHelper(self)
 		self.base_url = base_url
 
 
