@@ -1,8 +1,13 @@
 from model.group import Group
+mport pytest
+from data.add_group import testdata
 
-def test_delete_group(app):
+@pytest.mark.parametrize('group', testdata, ids = [repr(x) for x in testdata])
+def test_delete_group(app, group):
 	app.session.ensure_login(username='dmitriev@uchi.ru', password='1')
 	old_groups = app.group.get_group_list()
+	if len(old_groups) == 0:
+		app.group.create(group)
 	# Здесь:
 	# number_class - номер класса,
 	# name_class - название класса (сделал чтобы вводилось вручную в коде)

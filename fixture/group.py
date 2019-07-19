@@ -105,6 +105,14 @@ class GroupHelper:
 		time.sleep(2)
 
 
+	def is_not_registered(self):
+		wd = self.app.wd
+		if len(wd.find_element(By.LINK_TEXT, 'Неверная пара логина и пароля')) > 0:
+			return True
+		else:
+			return False
+
+
 	def get_group_list(self):
 		wd = self.app.wd
 		self.ensure_open_group_page()
