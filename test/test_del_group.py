@@ -1,5 +1,5 @@
 from model.group import Group
-mport pytest
+import pytest
 from data.add_group import testdata
 
 @pytest.mark.parametrize('group', testdata, ids = [repr(x) for x in testdata])

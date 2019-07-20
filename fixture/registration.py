@@ -57,9 +57,11 @@ class RegHelper:
 		wd.find_element_by_xpath('/html/body/section[2]/div[1]/div/div[2]/div/div/form/a').click()
 
 		#Ввожу номер школы
+		WebDriverWait(wd, 10).until(EC.visibility_of_element_located((By.XPATH,'/html/body/section[2]/div[1]/div/div[2]/div/div/form/div[7]/input')))
 		wd.find_element_by_xpath('/html/body/section[2]/div[1]/div/div[2]/div/div/form/div[7]/input').send_keys('123')
 
 		#Ввожу название школы
+		WebDriverWait(wd, 10).until(EC.visibility_of_element_located((By.XPATH,'/html/body/section[2]/div[1]/div/div[2]/div/div/form/div[8]/textarea')))
 		wd.find_element_by_xpath('/html/body/section[2]/div[1]/div/div[2]/div/div/form/div[8]/textarea').send_keys('123')
 
 		#Нажимаю кнопку далее
@@ -67,6 +69,9 @@ class RegHelper:
 
 		# Создаю группу
 		self.app.group.choice_group(registration)
+
+		#Добавляю одного студента
+		self.app.addstudent.one_student_registration()
 
 
 

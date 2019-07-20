@@ -16,6 +16,7 @@ class GroupHelper:
 
 	def open_group_page(self):
 		wd = self.app.wd
+		WebDriverWait(wd, 10).until(EC.element_to_be_clickable((By.LINK_TEXT,'Мои классы')))
 		wd.find_element_by_link_text('Мои классы').click()
 
 	def ensure_open_group_page(self):
@@ -107,7 +108,7 @@ class GroupHelper:
 
 	def is_not_registered(self):
 		wd = self.app.wd
-		if len(wd.find_element(By.LINK_TEXT, 'Неверная пара логина и пароля')) > 0:
+		if len(wd.find_elements(By.CSS_SELECTOR, 'div[class = "hint"]')) > 0:
 			return True
 		else:
 			return False
