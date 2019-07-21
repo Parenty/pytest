@@ -53,7 +53,7 @@ class RegHelper:
 		WebDriverWait(wd, 10).until(EC.element_to_be_clickable((By.XPATH,'/html/body/section[2]/div[1]/div/div[2]/div/div/form/div[3]/div/div[2]/div[1]')))
 		wd.find_element_by_xpath('/html/body/section[2]/div[1]/div/div[2]/div/div/form/div[3]/div/div[2]/div[1]').click()
 
-		WebDriverWait(wd, 10).until(EC.element_to_be_clickable((By.XPATH,'/html/body/section[2]/div[1]/div/div[2]/div/div/form/a')))
+		WebDriverWait(wd, 10).until(EC.visibility_of_element_located((By.XPATH,'/html/body/section[2]/div[1]/div/div[2]/div/div/form/div[6]/div[1]/div/div[1]')))
 		wd.find_element_by_xpath('/html/body/section[2]/div[1]/div/div[2]/div/div/form/a').click()
 
 		#Ввожу номер школы

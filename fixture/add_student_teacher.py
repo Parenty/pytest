@@ -16,6 +16,7 @@ class AddstudentHelper:
 		#  открываю страницу с группами
 		self.app.group.ensure_open_group_page()
 		# нажимаю кнопку "исправить состав класса (пока что только у 1-го класса в списке)"
+		WebDriverWait(wd, 10).until(EC.visibility_of_element_located((By.XPATH,'/html/body/section[2]/div[1]/div[1]/div/div[1]/a')))
 		wd.find_element(By.XPATH, '/html/body/section[2]/div[1]/div[1]/div/div[1]/a').click()
 
 
@@ -50,6 +51,6 @@ class AddstudentHelper:
 	def add_student(self):
 
 		wd = self.app.wd
-		wd.find_element(By.CLASS_NAME, 't-students-accounts--button').click()
 		self.open_student_page()
+		wd.find_element(By.CLASS_NAME, 't-students-accounts--button').click()
 		self.one_student()
