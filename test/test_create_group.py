@@ -10,7 +10,7 @@ import time
 @pytest.mark.parametrize('registration', testdata_reg, ids = [repr(x) for x in testdata_reg])
 def test_create_group(app, group, registration):
 
-	user='dmitriev+54@uchi.ru'
+	user='dmitriev+57@uchi.ru'
 	pswd = '1'
 
 	app.session.ensure_login(username=user, password=pswd)
