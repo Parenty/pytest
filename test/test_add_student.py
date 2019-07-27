@@ -4,6 +4,7 @@ from data.add_group import testdata
 from data.add_teacher import testdata_reg
 import time
 
+
 @pytest.mark.run(order=3)
 @pytest.mark.parametrize('registration', testdata_reg, ids = [repr(x) for x in testdata_reg])
 def test_add_student(app, registration):
