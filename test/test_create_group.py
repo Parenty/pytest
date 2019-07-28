@@ -1,9 +1,6 @@
-from model.group import Group
-from model.registration import Reg
 import pytest
 from data.add_group import testdata
 from data.add_teacher import testdata_reg
-import time
 
 
 @pytest.mark.run(order=2)
