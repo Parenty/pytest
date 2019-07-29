@@ -105,3 +105,4 @@ idea/
 .mypy_cache/
 
 .idea/workspace.xml
+*.xml

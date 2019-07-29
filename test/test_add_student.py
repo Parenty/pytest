@@ -15,7 +15,7 @@ def test_add_student(app, registration):
         registration.password = pswd
         app.registration.reg_teacher(registration)
 
-    #old_groups = app.group.get_group_list()
+    # old_groups = app.group.get_group_list()
     old_students = app.addstudent.get_students_list()
     app.addstudent.add_student()
     new_students = app.addstudent.get_students_list()
