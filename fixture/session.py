@@ -13,7 +13,9 @@ class SessionHelper:
 
 	def logout(self):
 		wd = self.app.wd
-		wd.find_element_by_class_name('headbar--profile').click()
+		logout_button = wd.find_element_by_class_name('headbar--profile')
+		wd.execute_script("window.scrollTo(0, document.body.scrollUp);")
+		logout_button.click()
 		wd.implicitly_wait(10)
 		wd.find_element_by_link_text('Выйти').click()
 

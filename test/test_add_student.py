@@ -12,7 +12,7 @@ def test_add_student(app, registration):
     not_registered = app.group.is_not_registered()
     if not_registered:
         registration.email = user
-        registration.password = pswd
+        registration.password = pswd("scrollBy(0,250);")
         app.registration.reg_teacher(registration)
 
     # old_groups = app.group.get_group_list()
