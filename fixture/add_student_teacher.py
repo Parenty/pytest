@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-from model.add_students import Students
+from model.students import Students
 import time
 
 
@@ -20,13 +20,13 @@ class AddstudentHelper:
             EC.visibility_of_element_located((By.XPATH, '/html/body/section[2]/div[1]/div[1]/div/div[1]/a')))
         wd.find_element(By.XPATH, '/html/body/section[2]/div[1]/div[1]/div/div[1]/a').click()
 
-    def one_student_registration(self):  # Добавление студента при регистрации
+    def one_student_registration(self, students):  # Добавление студента при регистрации
 
         wd = self.app.wd
         # Ввожу фамилию
-        wd.find_element(By.CSS_SELECTOR, 'input[placeholder = "Фамилия"]').send_keys('тестовый')
+        wd.find_element(By.CSS_SELECTOR, 'input[placeholder = "Фамилия"]').send_keys(students.student_surname)
         # Ввожу имя
-        wd.find_element(By.CSS_SELECTOR, 'input[placeholder = "Имя"]').send_keys('студент' + Keys.TAB)
+        wd.find_element(By.CSS_SELECTOR, 'input[placeholder = "Имя"]').send_keys(students.student_name + Keys.TAB)
         # Нажимаю кнопку добавить
         wd.find_element(By.CSS_SELECTOR, 'button[data-amplitude = "add student"]').click()
         # Нажимаю на кнопку готово
@@ -37,22 +37,23 @@ class AddstudentHelper:
             EC.element_to_be_clickable((By.CSS_SELECTOR, 'input[value = "Перейти в личный кабинет"]')))
         wd.find_element(By.CSS_SELECTOR, 'input[value = "Перейти в личный кабинет"]').click()
 
-    def one_student(self):  # Добавление студента уже зарегистрированному учителю
+    def one_student(self, students):  # Добавление студента уже зарегистрированному учителю
 
         wd = self.app.wd
         # Ввожу фамилию
-        wd.find_element(By.CSS_SELECTOR, 'input[placeholder = "Фамилия"]').send_keys('тестовый')
+        wd.find_element(By.CSS_SELECTOR, 'input[placeholder = "Фамилия"]').send_keys(students.student_surname)
         # Ввожу имя
-        wd.find_element(By.CSS_SELECTOR, 'input[placeholder = "Имя"]').send_keys('студент' + Keys.TAB)
+        wd.find_element(By.CSS_SELECTOR, 'input[placeholder = "Имя"]').send_keys(students.student_name + Keys.TAB)
         # Нажимаю кнопку добавить
         wd.find_element(By.CSS_SELECTOR, 'button[data-amplitude = "add student"]').click()
         time.sleep(1)
 
-    def add_student(self):
+    def add_student(self, students):
         wd = self.app.wd
         self.ensure_open_student_page()
-        wd.find_element(By.CLASS_NAME, 't-students-accounts--button').click()
-        self.one_student()
+        if EC.element_to_be_clickable((By.CLASS_NAME, 't-students-accounts--button')):
+            wd.find_element(By.CLASS_NAME, 't-students-accounts--button').click()
+        self.one_student(students)
 
     def ensure_open_student_page(self):
         wd = self.app.wd
