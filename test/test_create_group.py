@@ -12,7 +12,7 @@ def test_create_group(app, group, registration):
 
     app.session.ensure_login(username=user, password=pswd)
     not_registered = app.group.is_not_registered()
-    if not_registered == True:
+    if not_registered:
         registration.email = user
         registration.password = pswd
         app.registration.reg_teacher(registration)
