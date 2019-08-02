@@ -5,14 +5,7 @@
       <change beforePath="$PROJECT_DIR$/../parser_page-get-Url-/Parser_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/../parser_page-get-Url-/Parser_script.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../parser_page-get-Url-/statuscode.json" beforeDir="false" afterPath="$PROJECT_DIR$/../parser_page-get-Url-/statuscode.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pytest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pytest.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixture/add_student_teacher.py" beforeDir="false" afterPath="$PROJECT_DIR$/fixture/add_student_teacher.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixture/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/fixture/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/add_students.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/students.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_add_student.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_add_student.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,6 +28,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.file-colors" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
