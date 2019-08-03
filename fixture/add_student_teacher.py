@@ -1,3 +1,4 @@
+from selenium.common.exceptions import ElementNotInteractableException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
@@ -51,9 +52,11 @@ class AddstudentHelper:
     def add_student(self, students):
         wd = self.app.wd
         self.ensure_open_student_page()
-        if EC.element_to_be_clickable((By.CLASS_NAME, 't-students-accounts--button')):
+        try:
             wd.find_element(By.CLASS_NAME, 't-students-accounts--button').click()
-        self.one_student(students)
+            self.one_student(students)
+        except ElementNotInteractableException:
+            self.one_student(students)
 
     def ensure_open_student_page(self):
         wd = self.app.wd
