@@ -14,6 +14,7 @@ class GroupHelper:
 
     def open_group_page(self):
         wd = self.app.wd
+        wd.execute_script("window.scrollTo(0, document.body.scrollUp);")
         WebDriverWait(wd, 10).until(EC.element_to_be_clickable((By.LINK_TEXT, 'Мои классы')))
         wd.find_element_by_link_text('Мои классы').click()
 

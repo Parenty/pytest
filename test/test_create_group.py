@@ -7,14 +7,14 @@ from data.add_teacher import testdata_reg
 @pytest.mark.parametrize('group', testdata, ids=[repr(x) for x in testdata])
 @pytest.mark.parametrize('registration', testdata_reg, ids=[repr(x) for x in testdata_reg])
 def test_create_group(app, group, registration):
-    user = 'dmitriev@uchi.ru'
-    pswd = '123'
+    # user = 'dmitriev@uchi.ru'
+    # pswd = '123'
 
-    app.session.ensure_login(username=user, password=pswd)
+    app.session.ensure_login(username=registration.email, password=registration.password)
     not_registered = app.group.is_not_registered()
     if not_registered:
-        registration.email = user
-        registration.password = pswd
+        registration.email = registration.email
+        registration.password = registration.password
         app.registration.reg_teacher(registration)
 
     old_groups = app.group.get_group_list()
