@@ -1,4 +1,4 @@
-from model.registration import Reg
+
 import pytest
 from data.add_teacher import testdata_reg
 

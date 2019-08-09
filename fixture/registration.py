@@ -10,6 +10,11 @@ class RegHelper:
     def __init__(self, app):
         self.app = app
 
+    def already_registered(self):
+        wd = self.app.wd
+        if len(wd.find_elements_by_class_name('form__row-error')) > 0:
+            return True
+
     def reg_teacher(self, registration):
         wd = self.app.wd
         wd.find_element_by_class_name('registration-button').click()
@@ -22,6 +27,10 @@ class RegHelper:
 
         # нажать зарегистрироваться
         wd.find_element_by_name('commit').click()
+
+        # Проверяю, не зарегистрирован ли такой учитель
+        if self.already_registered():
+            return
 
         # Нажать на кнопку продолжить
 
