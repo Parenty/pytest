@@ -1,0 +1,4 @@
+pytest
+pytest-repeat
+pytest-ordering
+selenium
