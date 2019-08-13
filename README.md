@@ -16,11 +16,8 @@
    * Для Mac: `source env/bin/activate`
     
 5) Установить необходимые фреймворки:
-   * Selenium - `pip install selenium`
-   * Pytest - `pip install pytest`
-   * Pytest-repeat - `pip install pytest-repeat`
-   * Pytest-ordering - `pip install pytest ordering`
-    
+   * Список фреймворков находится в файле requirements.txt. Выполните команду: `pip install -r requirements.txt`
+   
 6) Установить последнюю версию `chromedriver` или `geckodriver` (в зависимости от используемого браузера, или можно оба сразу)
 Для этого:
 Если у Вас win: скопировать драйвер в папку с Python (например C:\Python36)
