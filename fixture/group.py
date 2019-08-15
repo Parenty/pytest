@@ -37,27 +37,27 @@ class GroupHelper:
 
         for item in group.subject_list:
             if item == 'math':
-                wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div/div[1]').click()
+                wd.find_element_by_css_selector('label[for = "input-checkbox-1"]').click()
             elif item == 'rus':
-                wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div/div[2]').click()
+                wd.find_element_by_css_selector('label[for = "input-checkbox-2"]').click()
             elif item == 'eng':
-                wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div/div[3]').click()
+                wd.find_element_by_css_selector('label[for = "input-checkbox-5"]').click()
             elif item == 'env':
-                wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div/div[4]').click()
+                wd.find_element_by_css_selector('label[for = "input-checkbox-6"]').click()
             elif item == 'prog':
-                wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div/div[5]').click()
+                wd.find_element_by_css_selector('label[for = "input-checkbox-7"]').click()
             elif item == 'bio':
-                wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div/div[6]').click()
+                wd.find_element_by_css_selector('label[for = "input-checkbox-8"]').click()
             elif item == 'geo':
-                wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div/div[7]').click()
+                wd.find_element_by_css_selector('label[for = "input-checkbox-9"]').click()
             elif item == 'soc':
-                wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div/div[8]').click()
+                wd.find_element_by_css_selector('label[for = "input-checkbox-11"]').click()
             elif item == 'phys':
-                wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div/div[9]').click()
+                wd.find_element_by_css_selector('label[for = "input-checkbox-10"]').click()
             elif item == 'chem':
-                wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div/div[10]').click()
+                wd.find_element_by_css_selector('label[for = "input-checkbox-12"]').click()
             elif item == 'hist':
-                wd.find_element_by_xpath('//*[@id="new_group"]/div[2]/div/div[11]').click()
+                wd.find_element_by_css_selector('label[for = "input-checkbox-13"]').click()
             else:
                 pass
 
