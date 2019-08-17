@@ -1,10 +1,8 @@
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
 from model import students
-from model.registration import Reg
 
 
 class RegHelper:
@@ -17,7 +15,7 @@ class RegHelper:
         if len(wd.find_elements_by_class_name('form__row-error')) > 0:
             return True
 
-    def reg_teacher(self, registration):
+    def reg_teacher(self, registration, students):
         wd = self.app.wd
         wd.find_element_by_class_name('registration-button').click()
         wd.find_element_by_xpath('//*[@id="teacher-select-button"]/div[4]/div').click()
