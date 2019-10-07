@@ -4,7 +4,7 @@ from data.add_group import testdata
 from data.add_teacher import testdata_reg
 
 
-@pytest.mark.skip
+# @pytest.mark.skip
 @pytest.mark.run(order=4)
 @pytest.mark.parametrize('group', testdata, ids=[repr(x) for x in testdata])
 @pytest.mark.parametrize('registration', testdata_reg, ids=[repr(x) for x in testdata_reg])

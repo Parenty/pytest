@@ -4,7 +4,7 @@ from model.group import Group
 testdata = [
 
     # Group(number_class='0', name_class='тестовый класс1', subject_list=['math']),
-    # Group(number_class='1', name_class='тестовый класс2', subject_list=['rus', 'eng', 'env', 'math', 'prog']),
+    Group(number_class='1', name_class='тестовый класс2', subject_list=['rus', 'eng', 'env', 'math', 'prog']),
     # Group(number_class='2', name_class='тестовый класс3', subject_list=['rus', 'eng', 'env', 'math', 'prog']),
     # Group(number_class='3', name_class='тестовый класс4', subject_list=['rus', 'eng', 'env', 'math', 'prog']),
     # Group(number_class='4', name_class='тестовый класс5', subject_list=['rus', 'eng', 'env', 'math', 'prog']),
