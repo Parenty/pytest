@@ -1,20 +1,19 @@
 import pytest
 from data.add_group import testdata
-from data.add_teacher import testdata_reg
+from fixture import registration
 
 
 @pytest.mark.run(order=2)
 @pytest.mark.parametrize('group', testdata, ids=[repr(x) for x in testdata])
-@pytest.mark.parametrize('registration', testdata_reg, ids=[repr(x) for x in testdata_reg])
-def test_create_group(app, group, registration):
-    # user = 'dmitriev@uchi.ru'
-    # pswd = '123'
+def test_create_group(app, group):
+    user = 'dmitriev@uchi.ru'
+    pswd = '1'
 
-    app.session.ensure_login(username=registration.email, password=registration.password)
+    app.session.ensure_login(username="dmitriev@uchi.ru", password="123")
     not_registered = app.group.is_not_registered()
     if not_registered:
-        registration.email = registration.email
-        registration.password = registration.password
+        registration.email = user
+        registration.password = pswd
         app.registration.reg_teacher(registration)
 
     old_groups = app.group.get_group_list()

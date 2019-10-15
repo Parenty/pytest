@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-from model import students
+from model.students import Students
 
 
 class RegHelper:
@@ -82,4 +82,4 @@ class RegHelper:
         self.app.group.choice_group(registration)
 
         # Добавляю одного студента
-        self.app.addstudent.one_student_registration(students)
+        self.app.addstudent.one_student_registration(Students)

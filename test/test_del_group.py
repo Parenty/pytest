@@ -1,15 +1,14 @@
 import pytest
 
 from data.add_group import testdata
-from data.add_teacher import testdata_reg
+# from data.add_teacher import testdata_reg
 
 
 # @pytest.mark.skip
 @pytest.mark.run(order=4)
 @pytest.mark.parametrize('group', testdata, ids=[repr(x) for x in testdata])
-@pytest.mark.parametrize('registration', testdata_reg, ids=[repr(x) for x in testdata_reg])
-def test_delete_group(app, group, registration):
-    app.session.ensure_login(username=registration.email, password=registration.password)
+def test_delete_group(app, group):
+    app.session.ensure_login(username="dmitriev@uchi.ru", password="1")
     old_groups = app.group.get_group_list()
     if len(old_groups) == 0:
         app.group.create(group)
