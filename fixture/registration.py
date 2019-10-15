@@ -16,7 +16,7 @@ class RegHelper:
         if len(wd.find_elements_by_class_name('form__row-error')) > 0:
             return True
 
-    def reg_teacher(self, registration, students):
+    def reg_teacher(self, registration):
         wd = self.app.wd
         wd.find_element_by_class_name('registration-button').click()
         wd.find_element_by_xpath('//*[@id="teacher-select-button"]/div[4]/div').click()
@@ -82,4 +82,4 @@ class RegHelper:
         self.app.group.choice_group(registration)
 
         # Добавляю одного студента
-        self.app.addstudent.one_student_registration(Students)
+        self.app.addstudent.one_student_registration()

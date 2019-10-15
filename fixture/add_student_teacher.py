@@ -21,13 +21,13 @@ class AddstudentHelper:
             EC.visibility_of_element_located((By.XPATH, '/html/body/section[2]/div[1]/div[1]/div/div[1]/a')))
         wd.find_element(By.XPATH, '/html/body/section[2]/div[1]/div[1]/div/div[1]/a').click()
 
-    def one_student_registration(self, students):  # Добавление студента при регистрации
+    def one_student_registration(self):  # Добавление студента при регистрации
 
         wd = self.app.wd
         # Ввожу фамилию
-        wd.find_element(By.CSS_SELECTOR, 'input[placeholder = "Фамилия"]').send_keys(students.student_surname)
+        wd.find_element(By.CSS_SELECTOR, 'input[placeholder = "Фамилия"]').send_keys("тестовый")
         # Ввожу имя
-        wd.find_element(By.CSS_SELECTOR, 'input[placeholder = "Имя"]').send_keys(students.student_name + Keys.TAB)
+        wd.find_element(By.CSS_SELECTOR, 'input[placeholder = "Имя"]').send_keys("студент" + Keys.TAB)
         # Нажимаю кнопку добавить
         wd.find_element(By.CSS_SELECTOR, 'button[data-amplitude = "add student"]').click()
         # Нажимаю на кнопку готово
