@@ -2,11 +2,16 @@ import pytest
 from data.add_group import testdata
 from fixture import registration
 from data.add_teacher import testdata_reg
+from model.registration import Reg
 
 
 @pytest.mark.run(order=2)
 @pytest.mark.parametrize('group', testdata, ids=[repr(x) for x in testdata])
 def test_create_group(app, group):
+    # auth = Reg()
+    # auth.email = testdata_reg
+    # user = auth.email
+    # pswd = auth.password
     user = 'dmitriev+7@uchi.ru'
     pswd = '1'
 

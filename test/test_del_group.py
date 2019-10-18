@@ -11,7 +11,7 @@ from model.group import Group
 @pytest.mark.run(order=4)
 # @pytest.mark.parametrize('group', testdata[1], ids=[repr(x) for x in testdata])
 def test_delete_group(app):
-    app.session.ensure_login(username="dmitriev+9@uchi.ru", password="1")
+    app.session.ensure_login(username="dmitriev+10@uchi.ru", password="1")
     old_groups = app.group.get_group_list()
     if len(old_groups) == 0:
         group = Group()
