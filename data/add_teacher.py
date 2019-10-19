@@ -2,7 +2,7 @@ from model.registration import Reg
 
 # Группа при регистрации
 testdata_reg = [
-    Reg(number_class='3', name_class='проверка регистрации', subject_list=['math', 'rus', 'eng'], email='dmitriev+10@uchi.ru',
+    Reg(number_class='3', name_class='проверка регистрации', subject_list=['math', 'rus', 'eng'], email='dmitriev+14@uchi.ru',
         password='1'),
     # Reg(number_class='3', name_class='метка б', subject_list=['math', 'rus', 'eng'], email='dmitriev+1@uchi.ru',
     #     password='123'),

@@ -3,7 +3,6 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-from model.students import Students
 
 
 class RegHelper:
@@ -55,9 +54,11 @@ class RegHelper:
         wd.find_element_by_name('commit').click()
 
         # Выбор региона
-        WebDriverWait(wd, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'div[class = '
-                                                                                 '"react-selectize-placeholder"]')))
-        wd.find_element(By.XPATH, '/html/body/section[2]/div[1]/div/div[2]/div/div/form/div[3]/div/div/div[2]/input').send_keys("Москва"+ Keys.ENTER)
+        WebDriverWait(wd, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'div.form__row.show '
+                                                                                 '.react-selectize-toggle-button'
+                                                                                 '-container')))
+        wd.find_element(By.CSS_SELECTOR, 'div.form__row.show .react-selectize-toggle-button-container').click()
+        wd.find_element(By.CSS_SELECTOR, 'div.form__row.show [type="input"]').send_keys("Москва"+ Keys.ENTER)
 
         WebDriverWait(wd, 10).until(EC.visibility_of_element_located(
             (By.XPATH, '/html/body/section[2]/div[1]/div/div[2]/div/div/form/div[6]/div[1]/div/div[1]')))
