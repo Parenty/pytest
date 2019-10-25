@@ -26,6 +26,7 @@ class SessionHelper:
 
 	def ensure_login(self, username, password):
 		wd = self.app.wd
+		print("123 test pull request")
 		if len(wd.find_elements_by_class_name('headbar--profile-icon')) > 0:
 			return
 
